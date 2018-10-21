@@ -14,7 +14,6 @@ dst_ip = '10.0.1.2'
 src_port = 1024
 dst_port = 80
 
-
 '''
 Main function
 '''
