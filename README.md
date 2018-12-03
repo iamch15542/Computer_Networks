@@ -15,14 +15,26 @@ In this lab, we are going to write a Python program which can generate a network
 
 ---
 ## Execution
-在 topology.py 裡面，一開始先 import 所需要的 module，再來是建立 class。在 class 裡面，我們將所需要的 host 跟 switch 一一建立出來，建立好之後，再依照 ![topo2.png](/src/topo/topo2.png) 的要求來建立各個host 與 host, switch 與 switch, host 與 switch 間的連結。
-> TODO:
-> 
-> * Describe how to execute your program
 
-> * Show the screenshot of using iPerf command in Mininet
+### topology.py 的結構
 
+&emsp;&emsp;一開始先 import 所需要的 module，再來是建立 class。在 class 裡面，我們將所需要的 host 跟 switch 一一建立出來，建立好之後，再依照 ![topo2.png](/src/topo/topo2.png) 的要求來建立各個host 與 host, switch 與 switch, host 與 switch 間的連結。之後在定義一個function來運作整個整體，建立mininet，以及用dumpNodeConnections跟CLI。
 
+### 執行的方式
+1. 先到topology.py所在的資料夾
+2. 再用sudo chmod +x 轉到可執行的模式
+3. 輸入sudo ./topology.py 來執行程式
+4. 跑完後，再輸入h6 iperf -s -u -i 1 > ./out/result &
+5. 以及h3 iperf -c 10.0.0.6 -u –i 1
+6. 獲得輸出的結果
+
+h6 iperf -s -u -i 1 > ./out/result & 是指說 h6當作server 用 udp 傳送，每一秒印出一次訊息，將檔案寫在./out/result裡面。
+
+h3 iperf -c 10.0.0.6 -u –i 1 則是表示說 h3 當作 client 並且連線到 10.0.0.6 ，用 udp 傳送，每一秒印出一次訊息。
+
+### 輸出的結果
+
+![/image/4.png](/image/4.png)
 
 ---
 ## Description
