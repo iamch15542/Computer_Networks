@@ -41,13 +41,24 @@ h3 iperf -c 10.0.0.6 -u –i 1 則是表示說 h3 當作 client 並且連線到 
 
 ### Mininet API in Python
 
+
 > TODO:
 > * Describe the meaning of Mininet API in Python you used in detail
 
 ### iPerf Commands
+h6 iperf -s -u -i 1 > ./out/result & 
 
-> TODO:
-> * Describe the meaning of iPerf command you used in detail
+是指說 h6當作server 用 udp 傳送，每一秒印出訊息，將檔案寫在./out/result裡面。
+
+h3 iperf -c 10.0.0.6 -u –i 1 
+
+則是表示說 h3 當作 client 並且連線到 10.0.0.6 ，用 udp 傳送，每一秒印出一次訊息。
+
+1. -s 表示當作server
+2. -u 表示用udp傳送
+3. -i 1表示每一秒印出訊息
+4. -c 10.0.0.6 表示當成client連線到10.0.0.6
+5. \> ./out/result & 表示傳送到那個地址
 
 ### Tasks
 
