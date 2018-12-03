@@ -16,10 +16,6 @@ In this lab, we are going to write a Python program which can generate a network
 ---
 ## Execution
 
-### topology.py 的結構
-
-&emsp;&emsp;一開始先 import 所需要的 module，再來是建立 class。在 class 裡面，我們將所需要的 host 跟 switch 一一建立出來，建立好之後，再依照 ![topo2.png](/src/topo/topo2.png) 的要求來建立各個host 與 host, switch 與 switch, host 與 switch 間的連結。之後在定義一個function來運作整個整體，建立mininet，以及用dumpNodeConnections跟CLI。
-
 ### 執行的方式
 1. 先到topology.py所在的資料夾
 2. 再用sudo chmod +x 轉到可執行的模式
@@ -62,20 +58,31 @@ h3 iperf -c 10.0.0.6 -u –i 1
 2. -u 表示用udp傳送
 3. -i 1表示每一秒印出訊息
 4. -c 10.0.0.6 表示當成client連線到10.0.0.6
-5. \> ./out/result & 表示傳送到那個地址
+5. \> ./out/result & 表示資訊輸出到那個位置
 
 ### Tasks
 
 1. **Environment Setup**
 
+	用ssh連到學校的工作站裡面，然後clone github上面的檔案下來到 Network_Topology資料夾裡面，用sudo mn 是跑看看mininet有無問題。
 
 2. **Example of Mininet**
+
+	cd到example.py所在的資料夾，再用sudo chmod +x 來將檔案轉成可執行檔，接著便輸入 sudo ./example.py 來執行。若發生像是"RTNETLINK answers: File exists"的問題，可以用mn -c 來將mininet清乾淨。
 
 
 3. **Topology Generator**
 
+	我的學號是0616091，所以後五碼是16091除3會餘2，因此是topo2.png。
+	
+	***topology.py 的結構***
+
+	&emsp;&emsp;一開始先 import 所需要的 module，再來是建立 class。在 class 裡面，我們將所需要的 host 跟 switch 一一建立出來，建立好之後，再依照 ![topo2.png](/src/topo/topo2.png) 的要求來建立各個host 與 host, switch 與 switch, host 與 switch 間的連結。連結便依照圖片中所要求的bandwidth, delay, and loss rate來建立。之後在定義一個function來運作整個整體，建立mininet，以及用dumpNodeConnections來輸出相關的資訊跟CLI來對節點輸入指令。
 
 4. **Measurement**
+
+	輸入h6 iperf -s -u -i 1 > ./out/result & 以及 h3 iperf -c 10.0.0.6 -u –i 1 來輸出所想要的資訊。
+	得到的結果是![/image/4.png](/image/4.png)，符合作業所要求的approximate value (13% ~ 18%)。
 
 ---
 ## References
