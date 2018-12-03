@@ -15,10 +15,14 @@ In this lab, we are going to write a Python program which can generate a network
 
 ---
 ## Execution
-
-> TODO: 
+在 topology.py 裡面，一開始先 import 所需要的 module，再來是建立 class。在 class 裡面，我們將所需要的 host 跟 switch 一一建立出來，建立好之後，再依照 ![topo2.png](/src/topo/topo2.png) 的要求來建立各個host 與 host, switch 與 switch, host 與 switch 間的連結。
+> TODO:
+> 
 > * Describe how to execute your program
+
 > * Show the screenshot of using iPerf command in Mininet
+
+
 
 ---
 ## Description
@@ -52,8 +56,11 @@ In this lab, we are going to write a Python program which can generate a network
 ---
 ## References
 
-> TODO: 
-> * Please add your references in the following
+* **My References**
+
+	* [透過 SSH 傳送檔案](https://www.phpini.com/linux/ssh-transfer-file-scp)	
+	* [Command Line Basics 基本操作](http://www.vialley.com/240/command-line-basics) 
+	* [Linux 的 scp 指令用法教學與範例：遠端加密複製檔案與目錄](https://blog.gtwang.org/linux/linux-scp-command-tutorial-examples/)
 
 * **Mininet**
     * [Mininet Walkthrough](http://mininet.org/walkthrough/)
@@ -77,10 +84,7 @@ In this lab, we are going to write a Python program which can generate a network
 ---
 ## Contributors
 
-> TODO:
-> * Please replace "YOUR_NAME" and "YOUR_GITHUB_LINK" into yours
-
-* [YOUR_NAME](YOUR_GITHUB_LINK)
+* [Yu Ying Chen](https://github.com/iamch15542)
 * [David Lu](https://github.com/yungshenglu)
 
 ---
