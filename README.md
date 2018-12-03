@@ -41,9 +41,13 @@ h3 iperf -c 10.0.0.6 -u –i 1 則是表示說 h3 當作 client 並且連線到 
 
 ### Mininet API in Python
 
-
-> TODO:
-> * Describe the meaning of Mininet API in Python you used in detail
+1. from mininet.cli import CLI :讓我們能用command-line的介面來與節點通信
+2. from mininet.log import setLogLevel :設置日誌級別
+3. from mininet.util import dumpNodeConnections : 輸出有關nodes的資訊
+4. from mininet.net import Mininet : Network emulation with hosts spawned in network namespaces.
+5. from mininet.topo import Topo : Data center network representation for structured multi-trees.
+6. from mininet.node import OVSController :打開 vSwitch controller.
+7. from mininet.link import TCLink : Link with symmetric TC interfaces configured via opts.
 
 ### iPerf Commands
 h6 iperf -s -u -i 1 > ./out/result & 
@@ -61,9 +65,6 @@ h3 iperf -c 10.0.0.6 -u –i 1
 5. \> ./out/result & 表示傳送到那個地址
 
 ### Tasks
-
-> TODO:
-> * Describe how you finish this work step-by-step in detail
 
 1. **Environment Setup**
 
