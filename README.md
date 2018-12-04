@@ -69,21 +69,24 @@ In this lab, we are going to write a Python program which can generate a network
 
 * ```h3 iperf -c 10.0.0.6 -u –i 1 ```
 
-	則是表示說 h3 當作 client 並且連線到 10.0.0.6 ，用 udp 傳送，每一秒印出一次訊息。
+	是表示說 h3 當作 client 並且連線到 10.0.0.6 ，用 udp 傳送，每一秒印出一次訊息。
 
+* ```h6``` & ```h3```
+
+	分別是用h6當作host 跟用 h3 當作host
 
 * ```-s ```
 	
 	表示當作server
 * ```-u``` 
 
-	表示用udp傳送
+	表示用udp傳送，預設為1Mbps。
 * ```-i 1```
 
 	表示每一秒印出訊息
-* ```-c 10.0.0.6``` 
+* ```-c <host>``` 
 
-	表示當成client連線到10.0.0.6
+	表示當成client連線到host的位置，host是server的ip位置。我們將h6當作server，而h6的ip位置是10.0.0.6，所以寫成-c 10.0.0.6。
 * ```\> ./out/result``` 
 
 	表示資訊輸出到那個位置
