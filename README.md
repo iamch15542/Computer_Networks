@@ -17,17 +17,33 @@ In this lab, we are going to write a Python program which can generate a network
 ## Execution
 
 ### 執行的方式
+
 1. 先到topology.py所在的資料夾
+
+	```
+	$ cd /root/Network_Topology/src/
+	```
 2. 再用sudo chmod +x 轉到可執行的模式
+
+	```
+	$ sudo chmod +x topology.py
+	```
 3. 輸入sudo ./topology.py 來執行程式
-4. 跑完後，再輸入h6 iperf -s -u -i 1 > ./out/result &
-5. 以及h3 iperf -c 10.0.0.6 -u –i 1
+
+	```
+	$ sudo ./topology.py
+	```
+4. 執行的過程時，會將switch跟host的資訊dump出來，並且進到mininet-CLI mode。
+5. 接著再把h6當作server跟 h3當作 client，並且把結果輸出到./out/result這個資料夾裡面
+	```
+	mininet> h6 iperf -s -u -i 1 > ./out/result &
+	```
+	```
+	mininet> h3 iperf -c 10.0.0.6 -u –i 1
+	```
 6. 獲得輸出的結果
-
-h6 iperf -s -u -i 1 > ./out/result & 是指說 h6當作server 用 udp 傳送，每一秒印出一次訊息，將檔案寫在./out/result裡面。
-
-h3 iperf -c 10.0.0.6 -u –i 1 則是表示說 h3 當作 client 並且連線到 10.0.0.6 ，用 udp 傳送，每一秒印出一次訊息。
-
+	
+	get the rate of packet loss which is an approximate value (13% ~ 18%)
 ### 輸出的結果
 
 ![/image/4.png](/image/4.png)
@@ -46,19 +62,34 @@ h3 iperf -c 10.0.0.6 -u –i 1 則是表示說 h3 當作 client 並且連線到 
 7. from mininet.link import TCLink : Link with symmetric TC interfaces configured via opts.
 
 ### iPerf Commands
-h6 iperf -s -u -i 1 > ./out/result & 
 
-是指說 h6當作server 用 udp 傳送，每一秒印出訊息，將檔案寫在./out/result裡面。
+* ```h6 iperf -s -u -i 1 > ./out/result & ```
 
-h3 iperf -c 10.0.0.6 -u –i 1 
+	是指說 h6 當作 server 用 udp 傳送，每一秒印出訊息，將結果寫在./out/result裡面。
 
-則是表示說 h3 當作 client 並且連線到 10.0.0.6 ，用 udp 傳送，每一秒印出一次訊息。
+* ```h3 iperf -c 10.0.0.6 -u –i 1 ```
 
-1. -s 表示當作server
-2. -u 表示用udp傳送
-3. -i 1表示每一秒印出訊息
-4. -c 10.0.0.6 表示當成client連線到10.0.0.6
-5. \> ./out/result & 表示資訊輸出到那個位置
+	則是表示說 h3 當作 client 並且連線到 10.0.0.6 ，用 udp 傳送，每一秒印出一次訊息。
+
+
+* ```-s ```
+	
+	表示當作server
+* ```-u``` 
+
+	表示用udp傳送
+* ```-i 1```
+
+	表示每一秒印出訊息
+* ```-c 10.0.0.6``` 
+
+	表示當成client連線到10.0.0.6
+* ```\> ./out/result``` 
+
+	表示資訊輸出到那個位置
+* ```&``` 
+	
+	讓command line在背景執行。所以我們能讓server在背景執行，同時間又執行client的指令
 
 ### Tasks
 
