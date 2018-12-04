@@ -118,7 +118,7 @@ In this lab, we are going to write a Python program which can generate a network
 	
 	* 連結的設定便依照圖片中所要求的bandwidth, delay, and loss rate來建立。
 
-	Example:```self.addLink(h1, switch2, bw = 14, delay = '5ms', loss = 13)```
+		Example:```self.addLink(h1, switch2, bw = 14, delay = '5ms', loss = 13)```
 	* 之後在定義一個function來運作整個整體，建立mininet ```net = Mininet(topo = topo, controller = OVSController, link = TCLink)```。用```net.start()```啟動程式，用```dumpNodeConnections(net.hosts)```以及```dumpNodeConnections(net.switches)```來輸出host跟switch的資訊，```net.pingAll()```將host的ping輸出，最後再用```CLI(net)```進到mininet的command line interface。
 
 4. **Measurement**
