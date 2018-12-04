@@ -117,6 +117,7 @@ In this lab, we are going to write a Python program which can generate a network
 	Example:```self.addSwitch('s5')``` ```self.addHost('h1')```
 	
 	* 連結的設定便依照圖片中所要求的bandwidth, delay, and loss rate來建立。
+
 	Example:```self.addLink(h1, switch2, bw = 14, delay = '5ms', loss = 13)```
 	* 之後在定義一個function來運作整個整體，建立mininet ```net = Mininet(topo = topo, controller = OVSController, link = TCLink)```。用```net.start()```啟動程式，用```dumpNodeConnections(net.hosts)```以及```dumpNodeConnections(net.switches)```來輸出host跟switch的資訊，```net.pingAll()```將host的ping輸出，最後再用```CLI(net)```進到mininet的command line interface。
 
@@ -125,7 +126,7 @@ In this lab, we are going to write a Python program which can generate a network
 	* 先執行topology.py，若無問題，會順利進入到mininet的CLI。
 	* 再輸入```h6 iperf -s -u -i 1 > ./out/result & ```以及```h3 iperf -c 10.0.0.6 -u –i 1```來輸出所想要的資訊。
 	* 結果會被輸出到/src/out/result。
-	* 最後得到的結果是![/image/4.png](/image/4.png)，符合作業所要求的approximate value (13% ~ 18%)。
+	* 最後得到的結果是![/image/4.png](/image/4.png)符合作業所要求的approximate value (13% ~ 18%)。
 
 ---
 ## References
