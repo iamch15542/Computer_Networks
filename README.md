@@ -47,7 +47,14 @@ In this lab, we are going to write a Python program which can generate a network
 6. 獲得輸出的結果
 	
 	get the rate of packet loss which is an approximate value (13% ~ 18%)
+
 ### 輸出的結果
+
+![/image/1.png](/image/1.png)
+
+![/image/2.png](/image/2.png)
+
+![/image/3.png](/image/3.png)
 
 ![/image/4.png](/image/4.png)
 
