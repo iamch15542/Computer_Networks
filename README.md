@@ -16,6 +16,9 @@ In this lab, we are going to write a Python program which can generate a network
 ---
 ## Execution
 
+### 工作站的密碼
+* Container Password: ```0616091```
+
 ### 執行的方式
 
 1. 先到topology.py所在的資料夾
