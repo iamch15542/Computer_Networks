@@ -69,34 +69,45 @@ In this lab, we are going to write a Python program which can generate a network
 * ```h6 iperf -s -u -i 1 > ./out/result & ```
 
 	是指說 h6 當作 server 用 udp 傳送，每一秒印出訊息，將結果寫在./out/result裡面。
+	
+	* ```h6``` 
+		
+		用 h6 當作host
+	* ```-s ```
+	
+		表示當作server
+	* ```-u``` 
+
+		表示用udp傳送，預設為1Mbps。
+	* ```-i 1```
+
+		表示每一秒印出訊息
+	* ```\> ./out/result``` 
+
+		將結果輸出到那個位置
+	* ```&``` 
+	
+		讓command line在背景執行。所以我們能讓server在背景執行，同時間又執行client的指令
+
+	
 
 * ```h3 iperf -c 10.0.0.6 -u –i 1 ```
 
 	是表示說 h3 當作 client 並且連線到 10.0.0.6 ，用 udp 傳送，每一秒印出一次訊息。
-
-* ```h6``` & ```h3```
-
-	分別是用h6當作host 跟用 h3 當作host
-
-* ```-s ```
 	
-	表示當作server
-* ```-u``` 
+	* ```h3```
+		
+		用 h3 當作host
+	* ```-c <host>``` 
 
-	表示用udp傳送，預設為1Mbps。
-* ```-i 1```
+		表示當成client連線到host的位置，host是server的ip位置。我們將h6當作server，而h6的ip位置是10.0.0.6，所以寫成-c 10.0.0.6。
+	* ```-u``` 
 
-	表示每一秒印出訊息
-* ```-c <host>``` 
+		表示用udp傳送，預設為1Mbps。
+	* ```-i 1```
 
-	表示當成client連線到host的位置，host是server的ip位置。我們將h6當作server，而h6的ip位置是10.0.0.6，所以寫成-c 10.0.0.6。
-* ```\> ./out/result``` 
-
-	將結果輸出到那個位置
-* ```&``` 
-	
-	讓command line在背景執行。所以我們能讓server在背景執行，同時間又執行client的指令
-
+		表示每一秒印出訊息
+		
 ### Tasks
 
 1. **Environment Setup**
