@@ -56,13 +56,27 @@ In this lab, we are going to write a Python program which can generate a network
 
 ### Mininet API in Python
 
-1. from mininet.cli import CLI :讓我們能用command-line的介面來與節點通信
-2. from mininet.log import setLogLevel :設置日誌級別
-3. from mininet.util import dumpNodeConnections : 輸出有關nodes的資訊
-4. from mininet.net import Mininet : Network emulation with hosts spawned in network namespaces.
-5. from mininet.topo import Topo : Data center network representation for structured multi-trees.
-6. from mininet.node import OVSController :打開 vSwitch controller.
-7. from mininet.link import TCLink : Link with symmetric TC interfaces configured via opts.
+* ```from mininet.cli import CLI```:
+
+	讓我們能用command-line的介面來下指令
+* ```from mininet.log import setLogLevel```:
+
+	設置日誌級別
+* ```from mininet.util import dumpNodeConnections```:
+
+	輸出有關nodes的資訊
+* ```from mininet.net import Mininet```: 
+
+	Network emulation with hosts spawned in network namespaces.
+* ```from mininet.topo import Topo```:
+
+	Data center network representation for structured multi-trees.
+* ```from mininet.node import OVSController```:
+	
+	打開 vSwitch controller.
+* ```from mininet.link import TCLink```:
+
+	Link with symmetric TC interfaces configured via opts.
 
 ### iPerf Commands
 
@@ -82,7 +96,7 @@ In this lab, we are going to write a Python program which can generate a network
 	* ```-i 1```
 
 		表示每一秒印出訊息
-	* ```\> ./out/result``` 
+	* ```> ./out/result``` 
 
 		將結果輸出到那個位置
 	* ```&``` 
