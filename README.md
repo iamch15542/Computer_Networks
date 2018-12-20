@@ -68,6 +68,9 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 > TODO: 
 > * Please add your references in the following
+* [使用 RYU 實現簡易 Switch](http://blog.laochanlam.me/2017/11/17/RYU-%E5%AF%A6%E7%8F%BE%E7%B0%A1%E6%98%93-Switch/)
+* [simple_switch_中文詳解.py](https://gist.github.com/aweimeow/d3662485aa224d298e671853aadb2d0f)
+
 
 * **Ryu SDN**
     * [Ryubook Documentation](https://osrg.github.io/ryu-book/en/html/)
@@ -79,6 +82,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
     * [GitHub - Ryu Controller 教學專案](https://github.com/OSE-Lab/Learning-SDN/blob/master/Controller/Ryu/README.md)
     * [Ryu SDN 指南 – Pengfei Ni](https://feisky.gitbooks.io/sdn/sdn/ryu.html)
     * [OpenFlow 通訊協定](https://osrg.github.io/ryu-book/zh_tw/html/openflow_protocol.html)
+    
 * **Python**
     * [Python 2.7.15 Standard Library](https://docs.python.org/2/library/index.html)
     * [Python Tutorial - Tutorialspoint](https://www.tutorialspoint.com/python/)
