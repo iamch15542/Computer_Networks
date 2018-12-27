@@ -87,8 +87,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 ![/src/topo/topo.png](/src/topo/topo.png)
 
-
-###Show the screenshot of using iPerf command in Mininet (both `SimpleController.py` and `controller.py`)
+### Show the screenshot of using iPerf command in Mininet (both `SimpleController.py` and `controller.py`)
 
 * 可以先用```mininet> pingall```來確定h1與h2有順利連線
 * 再輸入```mininet> h1 iperf -s -u -i 1 –p 5566 > ./out/result1 &``` 以及 ```h2 iperf -c 10.0.0.1 -u –i 1 –p 5566```來將結果輸出到/out/result1去
