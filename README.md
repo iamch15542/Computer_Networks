@@ -52,7 +52,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 	$ mn -c
 	```
 
-###What is the meaning of the executing command (both Mininet and Ryu controller)?
+### What is the meaning of the executing command (both Mininet and Ryu controller)?
 
 * ```mn --custom topo.py --topo topo --link tc --controller remote```:
 	* ```--custom topo.py```:
@@ -81,7 +81,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 ###Show the screenshot of using iPerf command in Mininet (both `SimpleController.py` and `controller.py`)
 * SimpleController.py
 
-![/img/img1.png](/image/img.png)
+![/img/img1.png](/img/img1.png)
 
 * controller.py
 
