@@ -154,6 +154,13 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 4. Ryu Controller
 
+	1. 先在src資料夾裡面，輸入```$ cd SimpleController.py controller.py```來將SimpleController.py的程式碼複製到controller.py裡面
+
+	2. 再依照![/img/img8.png](/img/img8.png)來修改controller.py
+
+	3. 將controller.py裡面的```def switch_features_handler(self, ev)```內容，依據上面圖片的要求來設定，其他部分不需要做任何的變動。
+
+
 5. Measurement
 
 ### Discussion
