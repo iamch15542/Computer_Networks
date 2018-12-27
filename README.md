@@ -85,7 +85,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 ### controller.py forwarding by this picture
 
-![/src/topo/topo.png](/src/topo/topo.png)
+![/img/img8.png](/img/img8.png)
 
 ### Show the screenshot of using iPerf command in Mininet (both `SimpleController.py` and `controller.py`)
 
@@ -141,6 +141,16 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 	4. 再到另外一個終端機跑SimpleController.py
 	
 		```$ryu-manager SimpleController.py --observe-links``` 
+		
+	5. 出現![/img/img9.png](/img/img9.png)
+
+		表示你的 controller.py 有問題，需要進行修改。
+	6. 出現![/img/img10.png](/img/img10.png)
+
+		表示你的 topo.py 有問題，需要進行修改。
+	7. 可以在Mininet’s CLI mode用 ping 來測試連接
+	
+		Example:```mininet> h1 ping h2```
 
 4. Ryu Controller
 
