@@ -100,7 +100,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 * controller.py
 
-	![/img/img6.png](/img/img6.png)
+	![/img/img12.png](/img/img12.png)
 
 ---
 ## Description
@@ -202,7 +202,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 	* controller.py
 
-	![/img/img6.png](/img/img6.png)
+	![/img/img12.png](/img/img12.png)
 
 ### Discussion
 
@@ -223,7 +223,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
     @set_ev_cls(ofp_event.EventOFPPacketIn, CONFIG_DISPATCHER)
     ```
     
-    1. 這是一個```decorator```，主要是讓函式成為在特定狀態接收特定封包的 Handler。
+    1. 這是一個```decorator```，主要是讓函式成為在特定狀態接收特定封包的 Handler。
     
     2. ```@set_ev_cls```則指定事件類別得以接受訊息和交換器狀態作為參數。
 
@@ -240,8 +240,17 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 	```ip_proto``` 是代表什麼網路協定類型，為了讓 flow 用UDP協定來傳輸，所以需要設定```ip_proto```，而UDP協定的protocol numbers是17，所以設定成```ip_proto=17```。
    
 7. Compare the differences between the iPerf results of `SimpleController.py` and `controller.py` in detail.
-   
+
+	SimpleController.py 的結果為 result1，controller.py的結果為 result2。
+	
+	result1 ![/img/img15.png](/img/img15.png)
+	
+	result2 ![/img/img16.png](/img/img16.png)
+	
+	從結果來看，result2 遺失的資料比較多，為1.7%，而result1 遺失的資料較少，為 1.2% 。再來看到 Bandwidth ，result1 與 result2 相近，但result1大部分都比較大ㄧ點點。最後看到 Jitter ，result1 與 result2 相近的，只有 3 - 4秒、4 - 5秒以及最後一筆資料，result2 是明顯大於 result1 的。
 8. Which forwarding rule is better? Why?
+
+	我個人是覺得就數據來講，result1 (也就是SimpleController.py)的方式會比較好，因為延遲較少，lost 的 Datagrams 也比較少，會是比較好的forwarding rule。但我覺得因為傳輸的資料量太少，檔案也太小，所以感覺不太出來差異。
 
 ---
 ## References
