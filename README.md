@@ -160,8 +160,49 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 	3. 將controller.py裡面的```def switch_features_handler(self, ev)```內容，依據上面圖片的要求來設定，其他部分不需要做任何的變動。
 
-
 5. Measurement
+
+	1. 先在終端機跑topo.py
+
+		```$mn --custom topo.py --topo topo --link tc --controller remote```
+		
+	2. 再到另外一個終端機跑SimpleController.py
+	
+		```$ryu-manager SimpleController.py --observe-links``` 
+		
+	3. 用 iPerf commands 來進行測試，並將結果輸出到result1，最後結束程式運行。
+		```mininet> h1 iperf -s -u -i 1 –p 5566 > ./out/result1 &```
+		
+		```mininet> h2 iperf -c 10.0.0.1 -u –i 1 –p 5566```
+		
+		```mininet> exit```
+		
+		```mn -c```
+	4. 再來是在跑一次topo.py
+
+		```$mn --custom topo.py --topo topo --link tc --controller remote```
+	
+	5. 再到另外一個終端機跑controller.py
+
+		```$ryu-manager controller.py --observe-links```
+	6. 一樣用 iPerf commands 來進行測試，並將結果輸出到result2，最後結束程式運行。
+
+		```mininet> h1 iperf -s -u -i 1 –p 5566 > ./out/result2 &```
+		
+		```mininet> h2 iperf -c 10.0.0.1 -u –i 1 –p 5566```
+		
+		```mininet> exit```
+		
+		```mn -c```
+6. 跑出來的結果
+
+	* SimpleController.py
+
+	![/img/img1.png](/img/img1.png)
+
+	* controller.py
+
+	![/img/img6.png](/img/img6.png)
 
 ### Discussion
 
