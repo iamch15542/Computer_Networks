@@ -107,14 +107,40 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 ### Tasks
 
-> TODO:
-> * Describe how you finish this work in detail
+1. **Environment Setup**
 
-1. Environment Setup
+	用ssh連到學校的工作站裡面，然後clone github上面的檔案下來到 Route_Configuration資料夾裡面，用sudo mn 是跑看看mininet有無問題。
 
-2. Example of Ryu SDN
+2. **Example of Ryu SDN**
+
+	1. 用ssh連到學校的工作站裡面，並且cd到SimpleTopo.py所在的資料夾。
+	
+	2. 先執行```$ [sudo] mn --custom SimpleTopo.py --topo topo --link tc --controller remote```
+
+		* 若發生像是"RTNETLINK answers: File exists"的問題，可以用mn -c 來將mininet清乾淨。
+
+	3. 再執行```[sudo] ryu-manager SimpleController.py --observe-links```
+
+	4. 要離開Ryu controller的話，先在SimpleTopo.py的terminal輸入```mininet> exit```
+
+	5. 再到 SimpleController.py 的 terminal 執行 ```ctrl-z```
+
+	6. 最後再輸入```$ mn -c```來確保RTNETLINK有被清乾淨
 
 3. Mininet Topology
+
+	1. 先在src資料夾裡面，輸入```$ cd SimpleTopo.py topo.py```來將SimpleTopo.py的程式碼複製到topo.py裡面
+
+	2. 再依照topo/topo.png來新增bandwidth, delay, and loss rate上去
+		
+		![/src/topo/topo.png](/src/topo/topo.png)
+	3. 先在終端機跑topo.py
+	 
+		```$mn --custom topo.py --topo topo --link tc --controller remote```
+
+	4. 再到另外一個終端機跑SimpleController.py
+	
+		```$ryu-manager SimpleController.py --observe-links``` 
 
 4. Ryu Controller
 
@@ -150,7 +176,8 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 * **My References** 
 	* [使用 RYU 實現簡易 Switch](http://blog.laochanlam.me/2017/11/17/RYU-%E5%AF%A6%E7%8F%BE%E7%B0%A1%E6%98%93-Switch/)
 	* [simple_switch_中文詳解.py](https://gist.github.com/aweimeow/d3662485aa224d298e671853aadb2d0f)
-	* [mn 介紹](https://manpages.ubuntu.com/manpages/xenial/en/man1/mn.1.html?fbclid=IwAR0P2Q0vNMq4Dv2CDRjJ4TVx98FbEP9qQcPGWm1a7c3c8_cGIqMi9CT4U5M)
+	* [mn referemce](https://manpages.ubuntu.com/manpages/xenial/en/man1/mn.1.html?fbclid=IwAR0P2Q0vNMq4Dv2CDRjJ4TVx98FbEP9qQcPGWm1a7c3c8_cGIqMi9CT4U5M)
+	* [ryu-manager reference](https://manpages.ubuntu.com/manpages/xenial/en/man8/ryu-manager.8.html)
 
 
 * **Ryu SDN**
