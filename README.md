@@ -16,10 +16,76 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 ---
 ## Execution
 
-> TODO:
-> * How to run your program?
-> * What is the meaning of the executing command (both Mininet and Ryu controller)?
-> * Show the screenshot of using iPerf command in Mininet (both `SimpleController.py` and `controller.py`)
+### 工作站的密碼
+* Container Password: ```0616091```
+
+### How to run your program?
+
+1. 先連到工作站裡面
+
+	```
+	ssh -p 16091 root@140.113.195.69
+	```
+2. 再到topo.py 跟 controller.py 所在的資料夾
+
+	```
+	$ cd /root/Route_Configuration/src/	
+	``` 
+3. 先啟動 topo.py 
+
+	```
+	$ [sudo] mn --custom topo.py --topo topo --link tc --controller remote
+	```
+4. 再啟動 controller.py
+
+	```
+	$ [sudo] ryu-manager controller.py --observe- links
+	```
+5. 先在執行topo.py的terminal執行exit
+
+	```
+	mininet > exit
+	```
+6. 再輸入mn -c 來結束掉controller.py
+
+	```
+	$ mn -c
+	```
+
+###What is the meaning of the executing command (both Mininet and Ryu controller)?
+
+* ```mn --custom topo.py --topo topo --link tc --controller remote```:
+	* ```--custom topo.py```:
+	
+		使用客製化的.py檔案，所以我們用自己寫的topo.py
+	* ```--topo topo```:
+		
+		使用topo.py裡面的topo
+	* ```--link tc```:
+	
+		使用TCLink來連接
+	* ```--controller remote```:
+		
+		使用遠端的controller，我們使用的是用ryu所建立起來的controller
+
+* ```ryu-manager controller.py --observe- links```:
+
+	* ```ryu-manager controller.py```:
+		
+		讓ryu-manager 執行controller.py這個程式碼
+
+	
+	* ```--observe- links```:
+
+		 觀察連結來看有無事件發生出來
+###Show the screenshot of using iPerf command in Mininet (both `SimpleController.py` and `controller.py`)
+* SimpleController.py
+
+![/img/img1.png](/image/img.png)
+
+* controller.py
+
+![/img/img6.png](/img/img6.png)
 
 ---
 ## Description
@@ -66,10 +132,10 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 ---
 ## References
 
-> TODO: 
-> * Please add your references in the following
-* [使用 RYU 實現簡易 Switch](http://blog.laochanlam.me/2017/11/17/RYU-%E5%AF%A6%E7%8F%BE%E7%B0%A1%E6%98%93-Switch/)
-* [simple_switch_中文詳解.py](https://gist.github.com/aweimeow/d3662485aa224d298e671853aadb2d0f)
+* **My References** 
+	* [使用 RYU 實現簡易 Switch](http://blog.laochanlam.me/2017/11/17/RYU-%E5%AF%A6%E7%8F%BE%E7%B0%A1%E6%98%93-Switch/)
+	* [simple_switch_中文詳解.py](https://gist.github.com/aweimeow/d3662485aa224d298e671853aadb2d0f)
+	* [mn 介紹](https://manpages.ubuntu.com/manpages/xenial/en/man1/mn.1.html?fbclid=IwAR0P2Q0vNMq4Dv2CDRjJ4TVx98FbEP9qQcPGWm1a7c3c8_cGIqMi9CT4U5M)
 
 
 * **Ryu SDN**
@@ -94,10 +160,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 ---
 ## Contributors
 
-> TODO:
-> * Please replace "`YOUR_NAME`" and "`YOUR_GITHUB_LINK`" into yours
-
-* [YOUR_NAME](YOUR_GITHUB_LINK)
+* [Yu Ying Chen](https://github.com/iamch15542)
 * [David Lu](https://github.com/yungshenglu)
 
 ---
