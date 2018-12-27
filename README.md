@@ -194,7 +194,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 		```mininet> exit```
 		
 		```mn -c```
-6. 跑出來的結果
+6. 最後跑出來的結果
 
 	* SimpleController.py
 
@@ -206,23 +206,38 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 ### Discussion
 
-> TODO:
-> * Answer the following questions
-
 1. Describe the difference between packet-in and packet-out in detail.
+
+	```packet-in```是指將接到的封包轉送到 controller 的動作。而```packet-out```則是將從 controller 傳送到的封包轉送到指定的連接埠。
    
 2. What is “table-miss” in SDN?
+
+	當有封包傳入 switch 的時候，會解開封包的標頭區，再根據流程表進行配對，若沒有配對成功，則到下一個流程表，直到配對成功並決定應該採取的動作為止。若該封包沒有符合任何一個流程表的配對，則該封包採取的動作將由 "table-miss" 來做決定。
    
 3. Why is "`(app_manager.RyuApp)`" adding after the declaration of class in `controller.py`?
+
+	讓所有有關ryu的應用程式都繼承 app_manager.RyuApp 。
    
 4. Explain the following code in `controller.py`.
     ```python
     @set_ev_cls(ofp_event.EventOFPPacketIn, CONFIG_DISPATCHER)
     ```
+    
+    1. 這是一個```decorator```，主要是讓函式成為在特定狀態接收特定封包的 Handler。
+    
+    2. ```@set_ev_cls```則指定事件類別得以接受訊息和交換器狀態作為參數。
 
+    3. 事件類別的規則為```ryu.controller.ofp_event.EventOFP + <OpenFlow訊息名稱>```，所以程式碼裡的```ofp_event.EventOFPPacketIn```是事件的名稱，而```PacketIn```便是OpenFlow訊息名稱。```PacketIn```代表的是在 Packet-In 訊息的狀態下。
+    
+    4. ```CONFIG_DISPATCHER```則是表示狀態，```CONFIG_DISPATCHER```所代表的是```接收 SwitchFeatures訊息```。 
+    
 5. What is the meaning of “datapath” in `controller.py`?
+
+	datapath 在 controller.py 裡面，是作為 switch 的實體來做運用。
    
 6. Why need to set "`ip_proto=17`" in the flow entry?
+	
+	```ip_proto``` 是代表什麼網路協定類型，為了讓 flow 用UDP協定來傳輸，所以需要設定```ip_proto```，而UDP協定的protocol numbers是17，所以設定成```ip_proto=17```。
    
 7. Compare the differences between the iPerf results of `SimpleController.py` and `controller.py` in detail.
    
@@ -236,6 +251,8 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 	* [simple_switch_中文詳解.py](https://gist.github.com/aweimeow/d3662485aa224d298e671853aadb2d0f)
 	* [mn referemce](https://manpages.ubuntu.com/manpages/xenial/en/man1/mn.1.html?fbclid=IwAR0P2Q0vNMq4Dv2CDRjJ4TVx98FbEP9qQcPGWm1a7c3c8_cGIqMi9CT4U5M)
 	* [ryu-manager reference](https://manpages.ubuntu.com/manpages/xenial/en/man8/ryu-manager.8.html)
+	* [List of IP protocol numbers](https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers)
+	* [交換器(Switching Hub)](https://osrg.github.io/ryu-book/zh_tw/html/switching_hub.html)
 
 
 * **Ryu SDN**
