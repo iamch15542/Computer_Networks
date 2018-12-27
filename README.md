@@ -212,18 +212,18 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
    
 2. What is “table-miss” in SDN?
 
-	當有封包傳入 switch 的時候，會解開封包的標頭區，再根據流程表進行配對，若沒有配對成功，則到下一個流程表，直到配對成功並決定應該採取的動作為止。若該封包沒有符合任何一個流程表的配對，則該封包採取的動作將由 "table-miss" 來做決定。
+	當有封包傳入 switch 的時候，會解開封包的標頭區，再根據流程表進行配對，若沒有配對成功，則到下一個流程表，直到配對成功並決定應該採取的動作為止。若該封包沒有符合任何一個流程表的配對，便是“table-miss"。當發生"table-miss"時，會根據“table-miss flow entry”來做決定。
    
 3. Why is "`(app_manager.RyuApp)`" adding after the declaration of class in `controller.py`?
 
-	讓所有有關ryu的應用程式都繼承 app_manager.RyuApp 。
+	class xxx(something):表示 xxx 這個 class 將會繼承 something 這個父class。在 controller.py 裡面，我們寫```class SimpleController1(app_manager.RyuApp)```，表示說```SimpleController1```這個class將會繼承```ryu.base.app_manager.RyuApp```，因為所有有關ryu的應用程式都必須繼承 app_manager.RyuApp 。
    
 4. Explain the following code in `controller.py`.
     ```python
     @set_ev_cls(ofp_event.EventOFPPacketIn, CONFIG_DISPATCHER)
     ```
-    
-    1. 這是一個```decorator```，主要是讓函式成為在特定狀態接收特定封包的 Handler。
+
+    1. 這是一個```decorator```，主要是讓函式成為在特定狀態接收特定封包的 Handler。
     
     2. ```@set_ev_cls```則指定事件類別得以接受訊息和交換器狀態作為參數。
 
@@ -241,13 +241,21 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
    
 7. Compare the differences between the iPerf results of `SimpleController.py` and `controller.py` in detail.
 
+	兩個主要的差別，在於h2 -> h1 傳送的途徑：
+	
+	```SimpleController.py```是 h2 -> s3 -> s1 -> h1。
+	
+	```controller.py```是 h2 -> s3 -> s2 -> s1 -> h1。
+	
+	controller.py在中間多經過了s2這個switch。
+	
 	SimpleController.py 的結果為 result1，controller.py的結果為 result2。
 	
 	result1 ![/img/img15.png](/img/img15.png)
 	
 	result2 ![/img/img16.png](/img/img16.png)
 	
-	從結果來看，result2 遺失的資料比較多，為1.7%，而result1 遺失的資料較少，為 1.2% 。再來看到 Bandwidth ，result1 與 result2 相近，但result1大部分都比較大ㄧ點點。最後看到 Jitter ，result1 與 result2 相近的，只有 3 - 4秒、4 - 5秒以及最後一筆資料，result2 是明顯大於 result1 的。
+	從結果來看，result2 遺失的資料比較多，為1.9%，而result1 遺失的資料較少，為 1.2% 。再來看到 Bandwidth ，result1 與 result2 相近，但result1大部分都比較大ㄧ點點。最後看到 Jitter ，result1 與 result2 相近的，只有 3 - 4秒、4 - 5秒以及最後一筆資料，result2 是明顯大於 result1 的。
 8. Which forwarding rule is better? Why?
 
 	我個人是覺得就數據來講，result1 (也就是SimpleController.py)的方式會比較好，因為延遲較少，lost 的 Datagrams 也比較少，會是比較好的forwarding rule。但我覺得因為傳輸的資料量太少，檔案也太小，所以感覺不太出來差異。
@@ -262,6 +270,8 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 	* [ryu-manager reference](https://manpages.ubuntu.com/manpages/xenial/en/man8/ryu-manager.8.html)
 	* [List of IP protocol numbers](https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers)
 	* [交換器(Switching Hub)](https://osrg.github.io/ryu-book/zh_tw/html/switching_hub.html)
+	* [SDN 筆記](https://ppundsh.github.io/posts/2a39/)
+	* [繼承](https://openhome.cc/Gossip/Python/Inheritance.html)
 
 
 * **Ryu SDN**
