@@ -81,11 +81,11 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 ### SimpleController.py forwarding by this picture
 
-![/img/img7.png](/img/img7.png)
+![/img/img3.png](/img/img3.png)
 
 ### controller.py forwarding by this picture
 
-![/img/img8.png](/img/img8.png)
+![/img/img8.png](/img/img4.png)
 
 ### Show the screenshot of using iPerf command in Mininet (both `SimpleController.py` and `controller.py`)
 
@@ -96,11 +96,11 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 * SimpleController.py
 
-	![/img/img1.png](/img/img1.png)
+	![/img/img2.png](/img/img2.png)
 
 * controller.py
 
-	![/img/img12.png](/img/img12.png)
+	![/img/img8.png](/img/img8.png)
 
 ---
 ## Description
@@ -142,10 +142,10 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 	
 		```$ryu-manager SimpleController.py --observe-links``` 
 		
-	5. 出現![/img/img9.png](/img/img9.png)
+	5. 出現![/img/img5.png](/img/img5.png)
 
 		表示你的 controller.py 有問題，需要進行修改。
-	6. 出現![/img/img10.png](/img/img10.png)
+	6. 出現![/img/img6.png](/img/img6.png)
 
 		表示你的 topo.py 有問題，需要進行修改。
 	7. 可以在Mininet’s CLI mode用 ping 來測試連接
@@ -156,7 +156,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 	1. 先在src資料夾裡面，輸入```$ cd SimpleController.py controller.py```來將SimpleController.py的程式碼複製到controller.py裡面
 
-	2. 再依照![/img/img8.png](/img/img8.png)來修改controller.py
+	2. 再依照![/img/img4.png](/img/img4.png)來修改controller.py
 
 	3. 將controller.py裡面的```def switch_features_handler(self, ev)```內容，依據上面圖片的要求來設定，其他部分不需要做任何的變動。
 
@@ -198,11 +198,11 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 	* SimpleController.py
 
-	![/img/img1.png](/img/img1.png)
+	![/img/img2.png](/img/img2.png)
 
 	* controller.py
 
-	![/img/img12.png](/img/img12.png)
+	![/img/img8.png](/img/img8.png)
 
 ### Discussion
 
@@ -251,9 +251,9 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 	
 	SimpleController.py 的結果為 result1，controller.py的結果為 result2。
 	
-	result1 ![/img/img15.png](/img/img15.png)
+	result1 ![/img/img9.png](/img/img9.png)
 	
-	result2 ![/img/img16.png](/img/img16.png)
+	result2 ![/img/img10.png](/img/img10.png)
 	
 	從結果來看，result2 遺失的資料比較多，為1.9%，而result1 遺失的資料較少，為 1.2% 。再來看到 Bandwidth ，result1 與 result2 相近，但result1大部分都比較大ㄧ點點。最後看到 Jitter ，result1 與 result2 相近的，只有 3 - 4秒、4 - 5秒以及最後一筆資料，result2 是明顯大於 result1 的。
 8. Which forwarding rule is better? Why?
