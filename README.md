@@ -133,7 +133,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 	2. 再依照topo/topo.png來新增bandwidth, delay, and loss rate上去
 		
-		![/src/topo/topo.png](/src/topo/topo.png)
+		![/src/topo/topo.jpg](/src/topo/topo.jpg)
 	3. 先在終端機跑topo.py
 	 
 		```$mn --custom topo.py --topo topo --link tc --controller remote```
