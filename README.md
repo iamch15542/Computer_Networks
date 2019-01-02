@@ -220,7 +220,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
    
 4. Explain the following code in `controller.py`.
     ```python
-    @set_ev_cls(ofp_event.EventOFPPacketIn, CONFIG_DISPATCHER)
+    @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
     ```
 
     1. 這是一個```decorator```，主要是讓函式成為在特定狀態接收特定封包的 Handler。
@@ -229,7 +229,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
     3. 事件類別的規則為```ryu.controller.ofp_event.EventOFP + <OpenFlow訊息名稱>```，所以程式碼裡的```ofp_event.EventOFPPacketIn```是事件的名稱，而```PacketIn```便是OpenFlow訊息名稱。```PacketIn```代表的是在 Packet-In 訊息的狀態下。
     
-    4. ```CONFIG_DISPATCHER```則是表示狀態，```CONFIG_DISPATCHER```所代表的是```接收 SwitchFeatures訊息```。 
+    4. ```MAIN_DISPATCHER```則是表示狀態，```MAIN_DISPATCHER```所代表的是```接收 SwitchFeatures訊息以及 傳送 set-config 訊息```。 
     
 5. What is the meaning of “datapath” in `controller.py`?
 
@@ -255,10 +255,25 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 	
 	result2 ![/img/img10.png](/img/img10.png)
 	
-	從結果來看，result2 遺失的資料比較多，為1.9%，而result1 遺失的資料較少，為 1.2% 。再來看到 Bandwidth ，result1 與 result2 相近，但result1大部分都比較大ㄧ點點。最後看到 Jitter ，result1 與 result2 相近的，只有 3 - 4秒、4 - 5秒以及最後一筆資料，result2 是明顯大於 result1 的。
+	從結果來看，result2 遺失的資料比較少，為1.7%，而result1 遺失的資料較多，為 1.9% 。再來看到 Bandwidth ，result1 與 result2 蠻接近的。最後看到 Jitter ，result1 與 result2 大部分也都是相近的，只有最後兩筆資料，result1 是明顯大於 result2 的。不過我想可能是因為傳輸的資料量太少，檔案也太小，所以感覺不太出來差異。
+
 8. Which forwarding rule is better? Why?
 
-	我個人是覺得就數據來講，result1 (也就是SimpleController.py)的方式會比較好，因為延遲較少，lost 的 Datagrams 也比較少，會是比較好的forwarding rule。但我覺得因為傳輸的資料量太少，檔案也太小，所以感覺不太出來差異。
+	我個人是覺得就結果來講，result2 (也就是controller.py)的方式會比較好，因為延遲較少，lost 的 Datagrams 也比較少，會是比較好的 forwarding rule。依照上面的 bandwidth 及 loss 跟 delay來講也是。
+
+	* loss
+
+		controller 不遺失的機率大概為 ```0.99 * 0.99 = 0.9801``` 大約是 98%。而SimpleController 不遺失的機率則是 97 %，明顯小於controller，所以loss較多資料也是正常的。
+		
+	* Bandwidth
+	
+		controller 的 Bandwidth 為20Mbits 跟 30Mbits 遠大於SimpleController的Bandwidth 的 3Mbits，正常來講，在bandwidth上應該也會有明顯的差別，只是在result1 跟 result2 沒有出現明顯的差異，可能是因為傳輸的檔案較小的關係。
+		
+	* delay
+
+		controller 的 delay 是 ```2ms + 2ms = 4ms```，而 SimpleController 則是 5ms，兩者沒有太大的差異，所以從結果上沒有出現明顯的差別。
+		
+	綜合以上這些原因，所以我認為說 controller 的 forwarding rule 會比 SimpleController 的 forwarding rule 來的好。
 
 ---
 ## References
