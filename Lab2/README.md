@@ -50,13 +50,13 @@ In this lab, we are going to write a Python program which can generate a network
 
 ### 輸出的結果
 
-![Lab2/image/1.png](Lab2/image/1.png)
+![/image/1.png](/image/1.png)
 
-![Lab2/image/2.png](Lab2/image/2.png)
+![/image/2.png](/image/2.png)
 
-![Lab2/image/3.png](Lab2/image/3.png)
+![/image/3.png](/image/3.png)
 
-![Lab2/image/4.png](Lab2/image/4.png)
+![/image/4.png](/image/4.png)
 
 ---
 ## Description
@@ -148,7 +148,7 @@ In this lab, we are going to write a Python program which can generate a network
 
 	* 在開頭加入```#!/usr/bin/python```，讓系統知道要用python來當作interpreter，所以才能用```chmod +x```來轉換成可執行檔。
 	* 接著 import 所需要的 module
-	* 再來是建立 class。在 class 裡面，定義一個build的function，在build裡面，用```self.addHost```來建立host 以及用 ```self.addSwitch```來建立 switch，建立好之後，再依照 ![topo2.png](Lab2/src/topo/topo2.png) 的要求來建立各個switch 與 switch, host 與 switch 間的連結，使用```self.addLink```來建立連結。
+	* 再來是建立 class。在 class 裡面，定義一個build的function，在build裡面，用```self.addHost```來建立host 以及用 ```self.addSwitch```來建立 switch，建立好之後，再依照 ![topo2.png](/src/topo/topo2.png) 的要求來建立各個switch 與 switch, host 與 switch 間的連結，使用```self.addLink```來建立連結。
 	Example:```self.addSwitch('s5')``` ```self.addHost('h1')```
 	
 	* 連結的設定便依照圖片中所要求的bandwidth, delay, and loss rate來建立。
@@ -161,7 +161,7 @@ In this lab, we are going to write a Python program which can generate a network
 	* 先執行topology.py，若無問題，會順利進入到mininet的CLI。
 	* 再輸入```h6 iperf -s -u -i 1 > ./out/result & ```以及```h3 iperf -c 10.0.0.6 -u –i 1```來輸出所想要的資訊。
 	* 結果會被輸出到/src/out/result。
-	* 最後得到的結果是![Lab2/image/4.png](Lab2/image/4.png)符合作業所要求的approximate value (13% ~ 18%)。
+	* 最後得到的結果是![/image/4.png](/image/4.png)符合作業所要求的approximate value (13% ~ 18%)。
 
 ---
 ## References

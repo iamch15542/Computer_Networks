@@ -81,11 +81,11 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 ### SimpleController.py forwarding by this picture
 
-![Lab3/img/img3.png](Lab3/img/img3.png)
+![/img/img3.png](/img/img3.png)
 
 ### controller.py forwarding by this picture
 
-![Lab3/img/img8.png](Lab3/img/img4.png)
+![/img/img8.png](/img/img4.png)
 
 ### Show the screenshot of using iPerf command in Mininet (both `SimpleController.py` and `controller.py`)
 
@@ -96,11 +96,11 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 * SimpleController.py
 
-	![Lab3/img/img2.png](Lab3/img/img2.png)
+	![/img/img2.png](/img/img2.png)
 
 * controller.py
 
-	![Lab3/img/img8.png](Lab3/img/img8.png)
+	![/img/img8.png](/img/img8.png)
 
 ---
 ## Description
@@ -133,7 +133,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 	2. 再依照topo/topo.png來新增bandwidth, delay, and loss rate上去
 		
-		![Lab3/src/topo/topo.jpg](Lab3/src/topo/topo.jpg)
+		![/src/topo/topo.jpg](/src/topo/topo.jpg)
 	3. 先在終端機跑topo.py
 	 
 		```$mn --custom topo.py --topo topo --link tc --controller remote```
@@ -142,10 +142,10 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 	
 		```$ryu-manager SimpleController.py --observe-links``` 
 		
-	5. 出現![Lab3/img/img5.png](Lab3/img/img5.png)
+	5. 出現![/img/img5.png](/img/img5.png)
 
 		表示你的 controller.py 有問題，需要進行修改。
-	6. 出現![Lab3/img/img6.png](Lab3/img/img6.png)
+	6. 出現![/img/img6.png](/img/img6.png)
 
 		表示你的 topo.py 有問題，需要進行修改。
 	7. 可以在Mininet’s CLI mode用 ping 來測試連接
@@ -156,7 +156,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 	1. 先在src資料夾裡面，輸入```$ cd SimpleController.py controller.py```來將SimpleController.py的程式碼複製到controller.py裡面
 
-	2. 再依照![Lab3/img/img4.png](Lab3/img/img4.png)來修改controller.py
+	2. 再依照![/img/img4.png](/img/img4.png)來修改controller.py
 
 	3. 將controller.py裡面的```def switch_features_handler(self, ev)```內容，依據上面圖片的要求來設定，其他部分不需要做任何的變動。
 
@@ -198,11 +198,11 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 
 	* SimpleController.py
 
-	![Lab3/img/img2.png](Lab3/img/img2.png)
+	![/img/img2.png](/img/img2.png)
 
 	* controller.py
 
-	![Lab3/img/img8.png](Lab3/img/img8.png)
+	![/img/img8.png](/img/img8.png)
 
 ### Discussion
 
@@ -251,9 +251,9 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 	
 	SimpleController.py 的結果為 result1，controller.py的結果為 result2。
 	
-	result1 ![Lab3/img/img9.png](Lab3/img/img9.png)
+	result1 ![/img/img9.png](/img/img9.png)
 	
-	result2 ![Lab3/img/img10.png](Lab3/img/img10.png)
+	result2 ![/img/img10.png](/img/img10.png)
 	
 	從結果來看，result2 遺失的資料比較少，為1.7%，而result1 遺失的資料較多，為 1.9% 。再來看到 Bandwidth ，result1 與 result2 蠻接近的。最後看到 Jitter ，result1 與 result2 大部分也都是相近的，只有最後兩筆資料，result1 是明顯大於 result2 的。不過我想可能是因為傳輸的資料量太少，檔案也太小，所以感覺不太出來差異。
 
